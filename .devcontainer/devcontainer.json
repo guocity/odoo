@@ -3,7 +3,7 @@
 {
 	"name": "Odoo Python Development",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:3.11",
+	"image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
@@ -12,7 +12,9 @@
 	"forwardPorts": [8069],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
+	// "postCreateCommand": "pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
+	// add postgres, and libdap
+	"postCreateCommand": "apt-get update && apt-get install -y libldap2-dev libsasl2-dev postgresql-client libpq-dev && pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
 
 	// Configure tool-specific properties.
 	"customizations": {
