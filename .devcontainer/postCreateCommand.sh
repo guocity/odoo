@@ -16,6 +16,9 @@ for i in 1 2; do
     echo "APT install failed, retrying ($i/2)..."
     sleep 1
 done
+# add vscode user to sudoers
+echo "vscode ALL=(postgres) NOPASSWD: /usr/bin/psql" | sudo tee /etc/sudoers.d/90-vscode-postgres
+sudo -u postgres psql -c "CREATE USER vscode WITH PASSWORD '';"
 
 pip install uv
 sudo uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'
