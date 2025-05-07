@@ -18,6 +18,8 @@ for i in 1 2; do
 done
 # add vscode user to sudoers
 echo "vscode ALL=(postgres) NOPASSWD: /usr/bin/psql" | sudo tee /etc/sudoers.d/90-vscode-postgres
+
+sudo service postgresql start
 sudo -u postgres psql -c "CREATE USER vscode WITH PASSWORD '';"
 
 pip install uv
