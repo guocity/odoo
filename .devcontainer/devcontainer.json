@@ -14,7 +14,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
 	// add postgres, and libdap
-	"postCreateCommand": "apt-get update && apt-get install -y libldap2-dev libsasl2-dev postgresql-client libpq-dev && pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libldap2-dev libsasl2-dev postgresql-client libpq-dev && pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
 
 	// Configure tool-specific properties.
 	"customizations": {
