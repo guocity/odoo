@@ -18,4 +18,4 @@ for i in 1 2; do
 done
 
 pip install uv
-sudo uv pip install --user -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'
+sudo uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'
