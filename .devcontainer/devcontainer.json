@@ -15,7 +15,8 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip install uv && uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
 	// add postgres, and libdap
-	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libldap2-dev libsasl2-dev postgresql postgresql-client libpq-dev && sudo service postgresql start && pip install uv && sudo uv pip install --system -r requirements.txt || echo 'No requirements.txt found, skipping dependency installation'",
+	"postCreateCommand": "chmod +x .devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh",
+	"postStartCommand": "sudo service postgresql start",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
